@@ -5,26 +5,6 @@ import datetime
 ###
 # Routing for your application.
 ###
-@app.route("/profile")
-def profile():
-    date_joined = datetime.date(2019, 2, 7)  # Example date
-    formatted_date = format_date_joined(date_joined)
-    
-    # Fake profile data
-    profile_info = {
-        "full_name": "Elizabeth Smith",
-        "username": "lizasmith23",
-        "location": "Kingston, JA",
-        "date_joined": formatted_date,
-        "bio": "Software developer and music lover.",
-        "posts": 94,
-        "followers": 876,
-        "following": 492,
-        "profile_image": "profile.jpg"
-    }
-    
-    return render_template("profile.html", profile=profile_info)
-
 
 @app.route('/')
 def home():
@@ -37,6 +17,14 @@ def about():
     """Render the website's about page."""
     return render_template('about.html', name="Mary Jane")
 
+@app.route('/profile')
+def profile():
+    date_joined= format_date_joined(datetime.date(2022,2,1))
+    return render_template('profile.html', date=date_joined)
+
+
+def format_date_joined(date):
+    return date.strftime("%B, %Y")
 
 ###
 # The functions below should be applicable to all Flask apps.
