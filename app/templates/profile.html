@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block main%}
+
+<container class="personalinfo">
+   <img src="{{ url_for ('static', filename='css/blacklady.jpg') }}">
+   <h1>Liandra A. Whittaker</h1>
+   <p>@liaaw</p>
+   <p>Kingston, Jamaica</p>
+   <p>Joined {{date}}</p>
+   
+</container>
+<container class="self-description">
+   <p>I love admiring nature and reading about mythology. </p>
+
+</container>
+ <container class="followcount">
+   <div id="follow">
+    <p id="number">1</p>
+    <p id="description">Post</p>
+   </div><br>
+   <div id="follow">
+    <p id="number">100</p>
+    <p id="description">Following</p>
+   </div><br>
+    <div id="follow">
+    <p id="number">350</p>
+    <p id="description">Followers</p>
+    </div>
+    <br>
+
+ </container>
+ 
+ <button id="followperson">Follow</button>
+ {%endblock%}

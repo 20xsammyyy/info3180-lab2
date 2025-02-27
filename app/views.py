@@ -1,10 +1,30 @@
 from app import app
 from flask import render_template, request, redirect, url_for, flash
-
+import datetime
 
 ###
 # Routing for your application.
 ###
+@app.route("/profile")
+def profile():
+    date_joined = datetime.date(2019, 2, 7)  # Example date
+    formatted_date = format_date_joined(date_joined)
+    
+    # Fake profile data
+    profile_info = {
+        "full_name": "Elizabeth Smith",
+        "username": "lizasmith23",
+        "location": "Kingston, JA",
+        "date_joined": formatted_date,
+        "bio": "Software developer and music lover.",
+        "posts": 94,
+        "followers": 876,
+        "following": 492,
+        "profile_image": "profile.jpg"
+    }
+    
+    return render_template("profile.html", profile=profile_info)
+
 
 @app.route('/')
 def home():
